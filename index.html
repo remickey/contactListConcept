@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+	<title>Contact List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  </head>
+  
+  <body ng-app="ContactListApp" ng-controller="MainController">
+  
+
+	<div class="wrapper">
+		<div class="header">
+			<h1>CONTACTS</h1>
+		</div>
+		
+			<div class="main container-fluid">
+				<div ng-repeat="person in persons | orderBy: sortType" class="person">
+					<div class="info col-xs-8" ng-click="showData()">
+						<h2 class="name">{{ person.fname + " " + person.lname }}</h2>
+						<h3>{{ person.relationship }}</h3>
+					</div>
+					
+					<div class="icons col-xs-4"">
+						<ul>
+							<li><img class="phone-icon" src="{{phoneIcon}}" ng-click="phoneInfo = !phoneInfo; swapIcon(phoneIcon)"></li>
+							<li><img class="address-icon" src="{{ addressIcon }}" ng-click="addressInfo = !addressInfo; swapIcon(addressIcon)"></li>
+							<li><img class="email-icon" src="{{ emailIcon }}" ng-click="emailInfo = !emailInfo; swapIcon(emailIcon)"></li>
+						</ul>
+					</div>
+					
+					<div class="details container col-xs-12 pull-left">
+						<div class="phone-details" ng-class="{show: phoneInfo, hide: !phoneInfo}">
+							<ul>
+								<li><span>HOME</span> {{ person.hphone }} </li>
+								<li><span>CELL</span> {{ person.mphone }}</li>
+								<li><span>WORK</span> {{ person.wphone }}</li>
+							</ul>
+						</div>
+						
+						<div class="address-details" ng-class="{show: addressInfo, hide: !addressInfo}">
+							<h5>HOME ADDRESS</h5>
+							<h4>{{ person.address }}</h4>
+							<h4>{{ person.city + ", " + person.state + " " + person.zip }}</h4>
+						</div>
+						
+						<div class="email-details" ng-class="{show: emailInfo, hide: !emailInfo}">
+							<h5>E-MAIL</h5>
+							<h4>{{ person.email }}</h4>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="footer">
+		<div class="swapSort col-xs-6" ng-click="reverseSort()">
+			<h3>SORT</h3>
+		</div>
+			
+		<div class="scroll col-xs-6">
+			<a href="#" class="scrollup"><h3>&uarr;</h3></a>
+		</div>
+	</div>
+    
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

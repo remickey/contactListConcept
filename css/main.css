@@ -1,0 +1,122 @@
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	color: #777;
+}
+
+h2 {
+	float: left;
+	font-family: Arial;
+	font-size: 42px;
+	font-weight: bold;
+	padding-right: 25px;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+h3 {
+	color: #bbb;
+	font-family: Arial;
+	font-size: 30px;
+	padding-top: 10px;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+h4 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+h5 {
+	font-size: 12px;
+}
+
+.wrapper {
+	height: auto !important;
+	height: 80%;
+	margin: 0 auto -110px;
+	min-height: 90%;
+}
+
+.header {
+    background: #07A1E1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+    height: 100px;
+    margin-top: -20px;
+    position: relative;
+}
+
+.header h1 {
+	color: white;
+	font-family: Arial;
+	font-size: 72px;
+	font-weight: bold;
+	padding-top: 12px;
+	text-align: center;
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);    
+}
+
+.main {
+	background: #eee;
+}
+
+.info {
+	height: 85px;
+}
+
+.icons {
+	top: 6px;
+}
+
+.icons li{
+	display: inline;
+	padding-left: 5px;
+}
+
+.details {
+	background: #ddd;
+	padding-left: 40px;
+}
+
+.phone-details ul {
+	margin-left: -40px;
+}
+
+.phone-details li span {
+	font-size: 12px;
+	font-weight: normal;
+	padding-right: 5px;
+}
+
+.phone-details li {
+	display: inline;
+	font-size: 24px;
+	font-weight: bold;
+	padding-right: 25px;
+}
+
+.footer {
+	background-color: #07A1E1;
+	box-shadow: -2px -2px 5px rgba(0,0,0,0.25);
+	height: 100px;
+}
+
+.footer, .push {
+margin-top: 125px;
+height: 110px;
+clear: both;
+}
+
+.footer h3{
+	color: white;
+	text-align: center;
+}
+
+.scrollup {
+    text-decoration: none !important;
+}
