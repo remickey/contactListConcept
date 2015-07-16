@@ -7,19 +7,19 @@
 		<div class="form" name="newContactForm" ng-form="contact-form">
 			<div class="category">Name</div>
 			<div class="inputbox">
-				<input name="fname" size="40%" ng-model="contact.fname" required>
+				<input name="fname" size="40%" ng-model="newContact.fname">
 				<div class="underline"></div>
 				<span class="descriptor">First Name</span>
 			</div>
 			
 			<div class="inputbox">
-				<input name="lname" size="40%" ng-model="contact.lname">
+				<input name="lname" size="40%" ng-model="newContact.lname">
 				<div class="underline"></div>
 				<span class="descriptor">Last Name</span>
 			</div>
 			
 			<div class="category">Relationship</div>
-				<select name="relationship" ng-model="contact.relationship">
+				<select name="relationship" ng-model="newContact.relationship">
 					<option value="Aunt">Aunt</option>
 					<option value="Boyfriend">Boyfriend</option>
 					<option value="Brother">Brother</option>
@@ -43,13 +43,13 @@
 			<h6>HOME</h6>
 			<div class="input-category phone-input">
 				<div class="inputbox">
-					<input name="hAreaCode" size="3" maxlength="3" ng-model="contact.hAreaCode"><span class="separator">-</span>
+					<input name="hAreaCode" size="3" maxlength="3" ng-model="newContact.hAreaCode"><span class="separator">-</span>
 					<div class="underline"></div>
 					<span class="descriptor">Area Code</span>
 				</div>
 				
 				<div class="inputbox">
-					<input name="hPhoneNumber" size="7" maxlength="7" ng-model="contact.hPhoneNumber">
+					<input name="hPhoneNumber" size="7" maxlength="7" ng-model="newContact.hPhoneNumber">
 					<div class="underline"></div>
 					<span class="descriptor">Phone Number</span>
 				</div>		
@@ -58,13 +58,13 @@
 			<h6>MOBILE</h6>
 			<div class="input-category phone-input">
 				<div class="inputbox">
-					<input name="mAreaCode" size="3" maxlength="3" ng-model="contact.mAreaCode"><span class="separator">-</span>
+					<input name="mAreaCode" size="3" maxlength="3" ng-model="newContact.mAreaCode"><span class="separator">-</span>
 					<div class="underline"></div>
 					<span class="descriptor">Area Code</span>
 				</div>
 				
 				<div class="inputbox">
-					<input name="mPhoneNumber" size="7" maxlength="7" ng-model="contact.mPhoneNumber">
+					<input name="mPhoneNumber" size="7" maxlength="7" ng-model="newContact.mPhoneNumber">
 					<div class="underline"></div>
 					<span class="descriptor">Phone Number</span>
 				</div>		
@@ -73,13 +73,13 @@
 			<h6>WORK</h6>
 			<div class="input-category phone-input">
 				<div class="inputbox">
-					<input name="wAreaCode" size="3" maxlength="3" ng-model="contact.wAreaCode"><span class="separator">-</span>
+					<input name="wAreaCode" size="3" maxlength="3" ng-model="newContact.wAreaCode"><span class="separator">-</span>
 					<div class="underline"></div>
 					<span class="descriptor">Area Code</span>
 				</div>
 				
 				<div class="inputbox">
-					<input name="wPhoneNumber" size="7" maxlength="7" ng-model="contact.wPhoneNumber">
+					<input name="wPhoneNumber" size="7" maxlength="7" ng-model="newContact.wPhoneNumber">
 					<div class="underline"></div>
 					<span class="descriptor">Phone Number</span>
 				</div>		
@@ -89,26 +89,26 @@
 				<ul class="list">
 					<li class="list-item">
 						<div class="inputbox">
-							<input name="street" size="100%" ng-model="contact.street">
+							<input name="street" size="100%" ng-model="newContact.street">
 							<div class="underline"></div>
 							<span class="descriptor">Street</span>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inputbox">
-							<input name="city" size="45%" ng-model="contact.city">
+							<input name="city" size="45%" ng-model="newContact.city">
 							<div class="underline"></div>
 							<span class="descriptor">City</span>
 						</div>
 						
 						<div class="inputbox">
-							<input name="state" size="2" maxlength="2" ng-model="contact.state">
+							<input name="state" size="2" maxlength="2" ng-model="newContact.state">
 							<div class="underline"></div>
 							<span class="descriptor">State</span>
 						</div>
 						
 						<div class="inputbox">
-							<input name="postalcode" size="5" maxlength="5" ng-model="contact.postalCode">
+							<input name="postalcode" size="5" maxlength="5" ng-model="newContact.postalCode">
 							<div class="underline"></div>
 							<span class="descriptor">Zip Code</span>
 						</div>
@@ -117,7 +117,7 @@
 			
 			<div class="category">E-mail</div>
 				<div class="inputbox">
-					<input name="email" size="100%" ng-model="contact.email">
+					<input name="email" size="100%" ng-model="newContact.email">
 					<div class="underline"></div>
 				</div>
 		</div>
