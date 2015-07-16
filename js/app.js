@@ -8,17 +8,14 @@ contactListApp.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        controller: 'AppController',
         controllerAs: 'list',
         templateUrl: 'partials/list.html'
       })
 	   .when('/add', {
-        controller: 'AppController',
         controllerAs: 'add',
         templateUrl: 'partials/edit.html'
       })
 	   .when('/edit/:id', {
-        controller: 'AppController',
         controllerAs: 'edit',
         templateUrl: 'partials/edit.html'
       })
@@ -31,8 +28,7 @@ contactListApp.config(['$routeProvider', '$locationProvider',
 	Declare the controller for the contactListApp. This is used for storing the people objects in an array and
 	adding some functionality to the HTML page.
 */
-contactListApp.controller('AppController', ['$scope', function($scope) {
-	
+contactListApp.controller('AppController', ['$scope', function($scope) {	
 	// Initialize the contact variable used to collect the input from the input fields on the page itself.
 	$scope.contact = {
 			fname: "",
@@ -256,6 +252,7 @@ contactListApp.controller('AppController', ['$scope', function($scope) {
 		if($scope.contact.wAreaCode != "" && $scope.contact.wPhoneNumber != ""){
 			$scope.contact.wphone = "1-" + $scope.contact.wAreaCode + "-" + $scope.contact.wPhoneNumber.substring(0,3) + "-" + $scope.contact.wPhoneNumber.substring(3);
 		}
+		
 		// Remove unnecessary name: value pairs from the contact object.
 		delete $scope.contact.hAreaCode;
 		delete $scope.contact.hPhoneNumber;
