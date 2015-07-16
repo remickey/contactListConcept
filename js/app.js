@@ -1,11 +1,151 @@
 // Initialize the contactListApp as an AngularJS module
-var contactListApp = angular.module("ContactListApp", []);
+var contactListApp = angular.module("ContactListApp", ['ngRoute']);
+
+/*
+	Declare a module to handle routing between templates so that page loads aren't necessary when using the app.
+*/
+contactListApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/', {
+        controller: 'AppController',
+        controllerAs: 'list',
+        templateUrl: 'partials/list.html'
+      })
+	   .when('/add', {
+        controller: 'AppController',
+        controllerAs: 'add',
+        templateUrl: 'partials/edit.html'
+      })
+	   .when('/edit/:id', {
+        controller: 'AppController',
+        controllerAs: 'edit',
+        templateUrl: 'partials/edit.html'
+      })
+	  .otherwise({
+		redirectTo: '/'
+	  });
+}]);
 
 /*
 	Declare the controller for the contactListApp. This is used for storing the people objects in an array and
 	adding some functionality to the HTML page.
 */
-contactListApp.controller('MainController', ['$scope', function($scope) {
+contactListApp.controller('AppController', ['$scope', function($scope) {
+	
+	// Initialize the contact variable used to collect the input from the input fields on the page itself.
+	$scope.contact = {
+			fname: "",
+			lname: "",
+			street: "",
+			city: "",
+			postalCode: "",
+			hphone: "",
+			hAreaCode: "",
+			hPhoneNumber: "",
+			mphone: "",
+			mAreaCode: "",
+			mPhoneNumber: "",
+			wphone: "",
+			wAreaCode: "",
+			wPhoneNumber: "",
+			email: "",
+			relationship: ""
+		};
+	
+	// Initialize the contacts variable used to hold an array of contacts. Used for displaying on the homepage.
+	$scope.contacts = [
+    {
+      fname: "Travis",
+	  lname: "Larky",
+	  street: "1155 Sibling Ln",
+	  city: "Westville",
+	  state: "NC",
+	  postalCode: "27012",
+	  hphone: "1-336-134-52345",
+	  mphone: "1-336-305-13547",
+	  wphone: "1-336.305.61561",
+	  email: "tmickey@yoohoo.com",
+	  relationship: "Brother"
+    },
+	{
+      fname: "Authur",
+	  lname: "Curry",
+	  street: "1422 Underwater Dr",
+	  city: "Atlantis",
+	  state: "CA",
+	  postalCode: "90217",
+	  hphone: "1-777-623-4356",
+	  mphone: "1-777-451-3574",
+	  wphone: "1-777-623-6361",
+	  email: "aquaman@underthesea.org",
+	  relationship: "Friend"
+    },
+	{
+      fname: "Jacob",
+	  lname: "Smith",
+	  street: "5345 Hicktown Rd",
+	  city: "Camouflage",
+	  state: "NC",
+	  postalCode: "27052",
+	  hphone: "1-336-305-6841",
+	  mphone: "1-336-305-8446",
+	  wphone: "1-336-305-1355",
+	  email: "xCountryBoy120x@realtreemails.com",
+	  relationship: "Cousin"
+    },
+	{
+      fname: "Rudy",
+	  lname: "Schwartz",
+	  street: "412 1st St",
+	  city: "New York",
+	  state: "NY",
+	  postalCode: "34068",
+	  hphone: "1-405-687-1530",
+	  mphone: "1-405-567-1321",
+	  wphone: "1-465-156-7894",
+	  email: "bigboyrudy@geemail.com",
+	  relationship: "Coworker"
+    },
+	{
+      fname: "Sarah",
+	  lname: "Bradford",
+	  street: "917 Potato Ave",
+	  city: "Murky Water",
+	  state: "TN",
+	  postalCode: "36813",
+	  hphone: "1-865-413-9821",
+	  mphone: "1-865-687-9234",
+	  wphone: "1-865-413-9647",
+	  email: "sbabs@ayeohel.com",
+	  relationship: "Friend"
+    },
+	{
+      fname: "Larry",
+	  lname: "Underwood",
+	  street: "6842 Rattlesnake Bl",
+	  city: "Rainwater",
+	  state: "TX",
+	  postalCode: "46813",
+	  hphone: "1-675-374-6578",
+	  mphone: "1-678-698-9541",
+	  wphone: "1-675-374-2884",
+	  email: "larrygeneunderwood@ask.com",
+	  relationship: "Friend"
+    },
+	{
+	  fname: "Ryan",
+	  lname: "Larky",
+	  street: "4324 Jerky St",
+	  city: "Dortmund",
+	  state: "NC",
+	  postalCode: "42345",
+	  hphone: "1-675-374-6578",
+	  mphone: "1-678-698-9541",
+	  wphone: "",
+	  email: "relerky@pmail.com",
+	  relationship: ""
+	}];
 	
 	$scope.sortType = 'fname'; 							// used for sorting people by their first name
 	$scope.phoneInfo = false; 							// used for determining if phone numbers are displayed (hidden by default)
@@ -98,88 +238,33 @@ contactListApp.controller('MainController', ['$scope', function($scope) {
 		   $scope.sortType = 'fname';
 	   }
    };
-  
-  /*
-		An array of person objects that is iterated through in the HTML using ng-repeat.
-  */
-  $scope.persons = [
-    {
-      fname: "Travis",
-	  lname: "Mickey",
-	  address: "1155 Sibling Ln",
-	  city: "Westville",
-	  state: "NC",
-	  zip: "27012",
-	  hphone: "336.134.52345",
-	  mphone: "336.305.13547",
-	  wphone: "336.305.61561",
-	  email: "tmickey@yoohoo.com",
-	  relationship: "Brother"
-    },
-	{
-      fname: "Authur",
-	  lname: "Curry",
-	  address: "1422 Underwater Dr",
-	  city: "Atlantis",
-	  state: "CA",
-	  zip: "90217",
-	  hphone: "777.623.4356",
-	  mphone: "777.451.3574",
-	  wphone: "777.623.6361",
-	  email: "aquaman@underthesea.org",
-	  relationship: "Friend"
-    },
-	{
-      fname: "Jacob",
-	  lname: "Smith",
-	  address: "5345 Hicktown Rd",
-	  city: "Camouflage",
-	  state: "NC",
-	  zip: "27052",
-	  hphone: "336.305.6841",
-	  mphone: "336.305.8446",
-	  wphone: "336.305.1355",
-	  email: "xCountryBoy120x@realtreemails.com",
-	  relationship: "Cousin"
-    },
-	{
-      fname: "Rudy",
-	  lname: "Schwartz",
-	  address: "412 1st St",
-	  city: "New York",
-	  state: "NY",
-	  zip: "34068",
-	  hphone: "405.687.1530",
-	  mphone: "405.567.1321",
-	  wphone: "465.156.7894",
-	  email: "bigboyrudy@geemail.com",
-	  relationship: "Coworker"
-    },
-	{
-      fname: "Sarah",
-	  lname: "Bradford",
-	  address: "917 Potato Ave",
-	  city: "Murky Water",
-	  state: "TN",
-	  zip: "36813",
-	  hphone: "865.413.9821",
-	  mphone: "865.687.9234",
-	  wphone: "865.413.9647",
-	  email: "sbabs@ayeohel.com",
-	  relationship: "Friend"
-    },
-	{
-      fname: "Larry",
-	  lname: "Underwood",
-	  address: "6842 Rattlesnake Bl",
-	  city: "Rainwater",
-	  state: "TX",
-	  zip: "46813",
-	  hphone: "675.374.6578",
-	  mphone: "678.698.9541",
-	  wphone: "675.374.2884",
-	  email: "larrygeneunderwood@ask.com",
-	  relationship: "Friend"
-    }
-  ];
+   
+   /*
+		The saveContact is used to save new contacts in the $scope.contacts array. 
+	*/
+	$scope.saveContact = function(){
+		
+		// Test to see if any phone numbers need formatting and format them.
+		if($scope.contact.hAreaCode != "" && $scope.contact.hPhoneNumber != ""){
+			$scope.contact.hphone = "1-" + $scope.contact.hAreaCode + "-" + $scope.contact.hPhoneNumber.substring(0,3) + "-" + $scope.contact.hPhoneNumber.substring(3);
+		}
+		
+		if($scope.contact.mAreaCode != "" && $scope.contact.mPhoneNumber != ""){
+			$scope.contact.mphone = "1-" + $scope.contact.mAreaCode + "-" + $scope.contact.mPhoneNumber.substring(0,3) + "-" + $scope.contact.mPhoneNumber.substring(3);
+		}
+		
+		if($scope.contact.wAreaCode != "" && $scope.contact.wPhoneNumber != ""){
+			$scope.contact.wphone = "1-" + $scope.contact.wAreaCode + "-" + $scope.contact.wPhoneNumber.substring(0,3) + "-" + $scope.contact.wPhoneNumber.substring(3);
+		}
+		// Remove unnecessary name: value pairs from the contact object.
+		delete $scope.contact.hAreaCode;
+		delete $scope.contact.hPhoneNumber;
+		delete $scope.contact.mAreaCode;
+		delete $scope.contact.mPhoneNumber;
+		delete $scope.contact.wAreaCode;
+		delete $scope.contact.wPhoneNumber;
+		
+		// Push the contact object into the array of contacts.
+		$scope.contacts.push($scope.contact);
+	};
 }]);

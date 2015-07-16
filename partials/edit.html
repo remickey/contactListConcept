@@ -1,0 +1,135 @@
+<div class="wrapper">
+	<div class="header">
+		<h1>New Contact</h1>
+	</div>
+		
+	<div class="main container-fluid" style="padding-left: 50px; padding-right: 50px">
+		<div class="form" name="newContactForm" ng-form="contact-form">
+			<div class="category">Name</div>
+			<div class="inputbox">
+				<input name="fname" size="40%" ng-model="contact.fname" required>
+				<div class="underline"></div>
+				<span class="descriptor">First Name</span>
+			</div>
+			
+			<div class="inputbox">
+				<input name="lname" size="40%" ng-model="contact.lname">
+				<div class="underline"></div>
+				<span class="descriptor">Last Name</span>
+			</div>
+			
+			<div class="category">Relationship</div>
+				<select name="relationship" ng-model="contact.relationship">
+					<option value="Aunt">Aunt</option>
+					<option value="Boyfriend">Boyfriend</option>
+					<option value="Brother">Brother</option>
+					<option value="Cousin">Cousin</option>
+					<option value="Daughter">Daughter</option>
+					<option value="Father">Father</option>
+					<option value="Friend">Friend</option>
+					<option value="Girlfriend">Girlfriend</option>
+					<option value="Grandchild">Grandchild</option>
+					<option value="Grandfather">Grandfather</option>
+					<option value="Grandmother">Grandmother</option>
+					<option value="Husband">Husband</option>
+					<option value="In-law">In-law</option>
+					<option value="Mother">Mother</option>
+					<option value="Son">Son</option>
+					<option value="Uncle">Uncle</option>
+					<option value="Wife">Wife</option>
+				</select>
+				
+			<div class="category">Phone Number</div>
+			<h6>HOME</h6>
+			<div class="input-category phone-input">
+				<div class="inputbox">
+					<input name="hAreaCode" size="3" maxlength="3" ng-model="contact.hAreaCode"><span class="separator">-</span>
+					<div class="underline"></div>
+					<span class="descriptor">Area Code</span>
+				</div>
+				
+				<div class="inputbox">
+					<input name="hPhoneNumber" size="7" maxlength="7" ng-model="contact.hPhoneNumber">
+					<div class="underline"></div>
+					<span class="descriptor">Phone Number</span>
+				</div>		
+			</div>
+			
+			<h6>MOBILE</h6>
+			<div class="input-category phone-input">
+				<div class="inputbox">
+					<input name="mAreaCode" size="3" maxlength="3" ng-model="contact.mAreaCode"><span class="separator">-</span>
+					<div class="underline"></div>
+					<span class="descriptor">Area Code</span>
+				</div>
+				
+				<div class="inputbox">
+					<input name="mPhoneNumber" size="7" maxlength="7" ng-model="contact.mPhoneNumber">
+					<div class="underline"></div>
+					<span class="descriptor">Phone Number</span>
+				</div>		
+			</div>
+			
+			<h6>WORK</h6>
+			<div class="input-category phone-input">
+				<div class="inputbox">
+					<input name="wAreaCode" size="3" maxlength="3" ng-model="contact.wAreaCode"><span class="separator">-</span>
+					<div class="underline"></div>
+					<span class="descriptor">Area Code</span>
+				</div>
+				
+				<div class="inputbox">
+					<input name="wPhoneNumber" size="7" maxlength="7" ng-model="contact.wPhoneNumber">
+					<div class="underline"></div>
+					<span class="descriptor">Phone Number</span>
+				</div>		
+			</div>
+				
+			<div class="category">Address</div>
+				<ul class="list">
+					<li class="list-item">
+						<div class="inputbox">
+							<input name="street" size="100%" ng-model="contact.street">
+							<div class="underline"></div>
+							<span class="descriptor">Street</span>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="inputbox">
+							<input name="city" size="45%" ng-model="contact.city">
+							<div class="underline"></div>
+							<span class="descriptor">City</span>
+						</div>
+						
+						<div class="inputbox">
+							<input name="state" size="2" maxlength="2" ng-model="contact.state">
+							<div class="underline"></div>
+							<span class="descriptor">State</span>
+						</div>
+						
+						<div class="inputbox">
+							<input name="postalcode" size="5" maxlength="5" ng-model="contact.postalCode">
+							<div class="underline"></div>
+							<span class="descriptor">Zip Code</span>
+						</div>
+					</li>
+				</ul>				
+			
+			<div class="category">E-mail</div>
+				<div class="inputbox">
+					<input name="email" size="100%" ng-model="contact.email">
+					<div class="underline"></div>
+				</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<a href="#/"><div class="confirm col-xs-6" ng-click="saveContact()">
+		<h3>Confirm</h3>
+	</div></a>
+		
+	<a href="#/"><div class="cancel col-xs-6">
+		<h3>Cancel</h3>
+	</div></a>
+</div>

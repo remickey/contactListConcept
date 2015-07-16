@@ -8,6 +8,7 @@ html, body {
 
 body {
 	color: #777;
+	font-family: Arial;
 }
 
 h2 {
@@ -36,6 +37,34 @@ h5 {
 	font-size: 12px;
 }
 
+h6 {
+	width: 0px;
+	margin-bottom: -40px;
+	position: relative;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+a {
+	color: #07A1E1;
+}
+
+input {
+	background: transparent;
+	border: none;
+	font-size: 30px;
+	outline: none;
+	padding: 15px 0 0 20px;
+	width: 80%;
+	text-align: left;
+}
+
+select {
+	background: transparent;
+	font-size: 30px;
+	margin-top: 5px;
+}
+
 .wrapper {
 	height: auto !important;
 	height: 80%;
@@ -53,7 +82,6 @@ h5 {
 
 .header h1 {
 	color: white;
-	font-family: Arial;
 	font-size: 72px;
 	font-weight: bold;
 	padding-top: 12px;
@@ -77,6 +105,51 @@ h5 {
 	display: inline;
 	padding-left: 5px;
 }
+
+.category {
+	border-bottom: 3px solid #07A1E1;
+	color: #07A1E1;
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.list {
+	list-style-type: none;
+}
+
+.input-category {
+	font-size: 14px;
+}
+
+.phone-input{
+	padding-left: 75px;
+}
+
+.descriptor {
+	font-weight: bold;
+	color: #07A1E1;
+}
+
+.inputbox {
+	display: inline-block;
+	width: auto;
+	padding-bottom: 20px;
+}
+
+.separator {
+	font-size: 24px;
+	padding-left: 5px;
+}
+
+.underline {
+	height: 4px;
+	width: 80%;
+	border-left: 2px solid #07A1E1;
+	border-right: 2px solid #07A1E1;
+	border-bottom: 2px solid #07A1E1;
+}
+
 
 .details {
 	background: #ddd;
@@ -107,16 +180,27 @@ h5 {
 }
 
 .footer, .push {
-margin-top: 125px;
-height: 110px;
-clear: both;
+	clear: both;
+	height: 90px;
+	margin-top: 145px;
 }
 
-.footer h3{
+.footer h3 {
 	color: white;
 	text-align: center;
 }
 
-.scrollup {
+.footer div{
+	border-left: 1px solid #0690c9;
+	border-right: 1px solid #0690c9;
+}
+
+.footer div, .footer div a {
+	height: 90px;
     text-decoration: none !important;
+}
+
+.footer div:hover {
+	background-color: #0690c9;
+	box-shadow: inset 0px 2px 5px 0px rgba(0,0,0,0.25);
 }
